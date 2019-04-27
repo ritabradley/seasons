@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SeasonDisplay from '../components/SeasonDisplay';
+import Spinner from '../components/Spinner';
 
 export default class App extends Component {
   state = { lat: null, errorMessage: '' };
@@ -16,7 +17,7 @@ export default class App extends Component {
     return (
       <div>
         {!errorMessage ? (
-          <div>{!lat ? 'Loading...' : <SeasonDisplay lat={lat} />}</div>
+          <div>{!lat ? <Spinner /> : <SeasonDisplay lat={lat} />}</div>
         ) : (
           <div>Error: {errorMessage}</div>
         )}
